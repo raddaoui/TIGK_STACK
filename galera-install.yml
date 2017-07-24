@@ -1,0 +1,21 @@
+---
+- name: Install galera server
+  hosts: cluster-metrics
+  gather_facts: "{{ gather_facts | default(True) }}"
+  serial: 1
+  max_fail_percentage: 20
+  user: root
+  roles:
+    - role: "pip_install"
+      tags:
+        - pip
+    - role: "galera_server"
+  vars:
+    # overridden here to ensure the correct value for the galera_client role
+    galera_address: 127.0.0.1
+    galera_server_id: "{{ inventory_hostname | string_2_int }}"
+    galera_wsrep_node_name: "{{ container_name }}"
+#  environment: "{{ deployment_environment_variables | default({}) }}"
+  environment: "{{  default({}) }}"
+  tags:
+    - galera

@@ -1,0 +1,8 @@
+- name: Install Galera server
+  hosts: cluster-metrics
+  user: root
+  roles:
+    - { role: "galera_server" }
+  vars:
+    galera_root_password: secrete
+

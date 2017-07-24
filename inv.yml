@@ -1,0 +1,8 @@
+[cluster-metrics]
+influxdb_host ansible_hostname=influxdb_host ansible_host=10.0.3.99
+
+[cluster-nodes]
+vm1 ansible_hostname=vm1 ansible_host=127.0.0.1
+
+[galera_all]
+galera ansible_hostname=galera ansible_host=10.0.3.90

@@ -1,0 +1,52 @@
+[global_tags]
+  node_type = "physical_host"
+
+[agent]
+  interval = "24s"
+  round_interval = false
+  metric_batch_size = 1024
+  metric_buffer_limit = 10240
+  collection_jitter = "8s"
+  flush_interval = "48s"
+  flush_jitter = "8s"
+  debug = false
+  quiet = true
+  hostname = "{{ ansible_hostname }}"
+  omit_hostname = false
+
+[[outputs.influxdb]]
+  urls = ["{{ influx_telegraf_targets | map('quote') | join(',') }}"]
+  database = "{{ influxdb_db_name }}"
+  precision = "s"
+  write_consistency = "any"
+  timeout = "5s"
+
+[[inputs.processes]]
+
+[[inputs.system]]
+
+[[inputs.conntrack]]
+  files = ["ip_conntrack_count","ip_conntrack_max",
+            "nf_conntrack_count","nf_conntrack_max"]
+  dirs = ["/proc/sys/net/ipv4/netfilter","/proc/sys/net/netfilter"]
+
+[[inputs.cpu]]
+  percpu = true
+  totalcpu = true
+  fielddrop = ["time_*"]
+
+[[inputs.net]]
+
+[[inputs.netstat]]
+
+[[inputs.disk]]
+  ignore_fs = ["tmpfs", "devtmpfs"]
+
+[[inputs.diskio]]
+
+[[inputs.kernel]]
+
+[[inputs.mem]]
+
+[[inputs.swap]]
+
