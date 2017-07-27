@@ -15,7 +15,7 @@
 
 galera_root_user: root
 galera_root_password: secret
-galera_address: 10.0.3.143
+galera_address: 10.0.3.107
 
 # Grafana vars
 grafana_port: 8089
@@ -25,7 +25,7 @@ grafana_db_password: secrete
 grafana_admin_password: SuperSecrete
 
 # InfluxDB vars
-influxdb_host: 10.0.3.122
+influxdb_host: 10.0.3.222
 influxdb_admin_port: 8083
 influxdb_port: 8086
 influxdb_db_name: telegraf

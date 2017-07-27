@@ -14,9 +14,10 @@
 # limitations under the License.
 
 - name: Deploy telegraf
-  hosts: "all"
+  hosts: "cluster-nodes"
   gather_facts: true
-  user: root
+  user: ubuntu
+  become: yes
   tasks:
     - name: Add influxdata apt-keys
       apt_key:

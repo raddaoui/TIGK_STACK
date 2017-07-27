@@ -1,8 +1,11 @@
 [cluster-metrics]
-influxdb_host ansible_hostname=influxdb_host ansible_host=10.0.3.122
+influxdb_host ansible_hostname=influxdb_host ansible_host=10.0.3.222
 
 [cluster-nodes]
-vm1 ansible_hostname=vm1 ansible_host=127.0.0.1
+sudesh1-api-0 ansible_hostname=sudesh1-api-0 ansible_host=10.130.1.235
+sudesh1-www-0 ansible_hostname=sudesh1-www-0 ansible_host=10.130.8.198
+sudesh1-worker-0 ansible_hostname=sudesh1-worker-0 ansible_host=10.130.7.241
+sudesh1-predict-0 ansible_hostname=sudesh1-predict-0 ansible_host=10.130.9.131
 
 [galera_all]
-galera ansible_hostname=galera ansible_host=10.0.3.143
+galera ansible_hostname=galera ansible_host=10.0.3.107
